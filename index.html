@@ -13,37 +13,7 @@
         <h2>Selected Items:</h2>
         <div id="result"></div>
     </div>
-    <script>
-    // Normal items array
-    const normalItems = [
-        'banana', 'triple bananas', 'green shell', 'triple green shells', 
-        'red shell', 'triple red shells', 'blue shell', 'bob-omb', 
-        'mushroom', 'triple mushrooms', 'golden mushroom', 'bullet', 
-        'squid', 'lightning', 'star', 'fire flower', 
-        'boomerang flower', 'pirahna plant', 'sonic speaker', 
-        'super eight', 'coin', 'king boo'
-    ];
-
-    // Function to get random normal items
-    function normRandomItems() {
-        const normItemSize = normalItems.length;
-        const numNormItems = Math.floor(Math.random() * (normItemSize + 1)); // Random number from 0 to normItemSize
-
-        // Clone the array to avoid modifying the original
-        const itemsCopy = [...normalItems];
-
-        // Select random items without replacement
-        const itemsUsed = [];
-        for (let i = 0; i < numNormItems; i++) {
-            const randomIndex = Math.floor(Math.random() * itemsCopy.length);
-            itemsUsed.push(itemsCopy[randomIndex]);
-            itemsCopy.splice(randomIndex, 1); // Remove the selected item from the copy
-        }
-
-        return itemsUsed;
-    }
-
-    // Event listener for button click
+    <script src = "js/norm_random_items.js">
     document.getElementById('selectButton').addEventListener('click', () => {
         const selectedItems = normRandomItems();
         document.getElementById('result').innerText = selectedItems.length > 0 
