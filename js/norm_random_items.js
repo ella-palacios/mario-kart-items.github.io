@@ -19,6 +19,13 @@ function normRandomItems() {
 
     return itemsUsed;
 }
+//building button listener
+document.getElementById('selectButton').addEventListener('click', () => {
+        const selectedItems = normRandomItems();
+        document.getElementById('result').innerText = selectedItems.length > 0 
+            ? selectedItems.join(', ') 
+            : 'No items selected.';
+    });
 
 //usage
 //console.log(normRandomItems());
