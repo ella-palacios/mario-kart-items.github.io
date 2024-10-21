@@ -1,0 +1,40 @@
+<!DOCTYPE hmtl>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Item Selector for Mario Kart 8 Deluxe </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Random Item Selector</h1>
+        <button id="selectButton">Randomize Items!</button>
+        <h2>Selected Items:</h2>
+        <div id="result"></div>
+    </div>
+    <script>
+        const NormalItems = ['banana', 'triple bananas', 'green shell', 'triple green shells', 'red shell', 'triple red shells', 'blue shell', 
+                      'bob-omb', 'mushroom', 'triple mushrooms', 'golden mushroom', 'bullet', 'squid', 'lightning', 'star', 'fire flower', 
+                      'boomerang flower', 'pirahna plant', 'sonic speaker', 'super eight', 'coin', 'king boo'];
+
+        function normRandomItems() {
+          const normItemSize = normalItems.length;
+          const numNormItems = Math.floor(Math.random() * (normItemSize + 1)); // Random number from 0 to normItemSize
+          const itemsCopy = [...normalItems];
+          const itemsUsed = [];
+          for (let i = 0; i < numNormItems; i++) {
+            const randomIndex = Math.floor(Math.random() * itemsCopy.length);
+            itemsUsed.push(itemsCopy[randomIndex]);
+            itemsCopy.splice(randomIndex, 1); // Remove the selected item from the copy }
+
+        return itemsUsed;
+          }
+          document.getElementById('selectButton').addEventListener('click', () => {
+            const selectedItems = normRandomItems();
+            document.getElementById('result').innerText = selectedItems.length > 0 
+                ? selectedItems.join(', ') 
+                : 'Play with no items!';
+        });
+     </script>        
+</body>
