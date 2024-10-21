@@ -1,1 +1,0 @@
-This file contains the python work done before building the API for the mario kart random item selection. 
